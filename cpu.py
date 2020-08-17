@@ -192,11 +192,12 @@ class CPU:
             print(f"Geting the address from the atack at {self.SP}")
         self.PC = self.ram_read(self.SP)
         self.SP -= 1
-
+    #REQUIRED FOR MVP SPRINT
     def JMP(self, a, b):
         self.log(F"Setting the program counter to {self.register[a]}")
         self.PC = self.register[a]
 
+    # REQUIRED FOR MVP SPRINT
     def JEQ(self, a, b):
         self.log("Jump if eq.")
         if self.FL == EQ:
@@ -209,6 +210,7 @@ class CPU:
             self.log(f"Incrementing count {operands}");
             self.PC += operands + 1
 
+    # REQUIRED FOR MVP SPRINT
     def JNE(self, a, b):
         self.log("Jump if not equal")
         if self.FL != EQ:
@@ -218,7 +220,7 @@ class CPU:
             operands = self.IR >> 6
             self.log(f"Incrementing count {operands}");
             self.PC += operands + 1
-
+    #ADDING CMP
     def alu(self, opp, a, b):
 
         operations = {
